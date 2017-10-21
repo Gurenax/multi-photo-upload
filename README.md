@@ -1,4 +1,4 @@
-# Multi Photo Uploader using Shrine
+# Multiple Photo Upload using Shrine
 
 This is a simple guide to upload multiple photos with Shrine without using JQuery file upload.
 For simplicity, I will not be using AWS S3 with this guide.
