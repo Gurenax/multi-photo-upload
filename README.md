@@ -180,3 +180,6 @@ Add this in the form
   <% end %>
 </p>
 ```
+
+## That's about it.
+### For any questions/suggestions, please create an Issue
