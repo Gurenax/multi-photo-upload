@@ -44,9 +44,11 @@ class DocumentsController < ApplicationController
       if @document.update(document_params)
 
         puts "THis is a test"
-        if params[:images]
-          params[:images].each { |image|
-            p image.inspect
+        p params[:document][:images]
+        if params[:document][:images]
+          params[:document][:images].each { |image|
+            # print "Photo: "
+            # p image
             Photo.create!(document: @document, image: image)
           }
         end
@@ -80,4 +82,5 @@ class DocumentsController < ApplicationController
     def document_params
       params.require(:document).permit(:title, :body)
     end
+
 end
