@@ -28,6 +28,14 @@ class DocumentsController < ApplicationController
 
     respond_to do |format|
       if @document.save
+
+        # Get photos directly from the params and save them to the database one by one
+        if params[:document][:images]
+          params[:document][:images].each { |image|
+            Photo.create(document: @document, image: image)
+          }
+        end
+
         format.html { redirect_to @document, notice: 'Document was successfully created.' }
         format.json { render :show, status: :created, location: @document }
       else
@@ -43,13 +51,10 @@ class DocumentsController < ApplicationController
     respond_to do |format|
       if @document.update(document_params)
 
-        puts "THis is a test"
-        p params[:document][:images]
+        # Get photos directly from the params and save them to the database one by one
         if params[:document][:images]
           params[:document][:images].each { |image|
-            # print "Photo: "
-            # p image
-            Photo.create!(document: @document, image: image)
+            Photo.create(document: @document, image: image)
           }
         end
 
