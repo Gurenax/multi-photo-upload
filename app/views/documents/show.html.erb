@@ -11,7 +11,7 @@
 </p>
 
 <p>
-  <strong>Photos:</strong>
+  <strong>Photos:</strong><br>
   <% @document.photos.each do |photo| %>
     <%= image_tag photo.image_url(:thumb) %><br>
     <%= link_to 'Delete Photo', photo_path(photo), method: :delete %><br>
