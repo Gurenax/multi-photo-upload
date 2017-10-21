@@ -42,6 +42,15 @@ class DocumentsController < ApplicationController
   def update
     respond_to do |format|
       if @document.update(document_params)
+
+        puts "THis is a test"
+        if params[:images]
+          params[:images].each { |image|
+            p image.inspect
+            Photo.create!(document: @document, image: image)
+          }
+        end
+
         format.html { redirect_to @document, notice: 'Document was successfully updated.' }
         format.json { render :show, status: :ok, location: @document }
       else
@@ -69,6 +78,6 @@ class DocumentsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def document_params
-      params.require(:document).permit(:title, :body, :images)
+      params.require(:document).permit(:title, :body)
     end
 end
