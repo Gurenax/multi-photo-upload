@@ -81,8 +81,8 @@ Each document will have many photos.
 When a document is deleted, all its photos will also be deleted.
 ```ruby
 class Document < ApplicationRecord
-    has_many :photos, dependent: :destroy    
-    accepts_nested_attributes_for :photos
+  has_many :photos, dependent: :destroy    
+  accepts_nested_attributes_for :photos
 end
 ```
 
