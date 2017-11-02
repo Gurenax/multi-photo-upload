@@ -46,7 +46,7 @@ Shrine.plugin :cached_attachment_data # for forms
 ```
 
 ### Uploader
-Create uploaders\image_uploader.rb
+Create app\uploaders\image_uploader.rb
 ```ruby
 class ImageUploader < Shrine
   include ImageProcessing::MiniMagick
